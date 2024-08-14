@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Family Moments</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    // 웹 페이지 로딩 완료 시 함수 호출
+    window.onload = function () {
+        setTimeout(
+            function () {
+                var visitedAt = (new Date()).getTime(); // 방문 시간
+                if ((new Date()).getTime() - visitedAt < 2000) {
+                    location.href = "https://github.com/familymoments/family-moments-android";
+                }
+            }, 500);
+
+        var iframe = document.createElement('iframe');
+        iframe.style.visibility = 'hidden'; // 보이지 않는 iframe으로 스킴을 호출한다.
+
+        // query parameter를 이용하여 앱에 전달할 데이터를 설정한다.
+        const url = new URL(window.location.href);
+        const params = url.searchParams;
+        const invitationCode = params.get('code');
+
+        iframe.src = 'familymoments://invite?code=' + invitationCode; // 스킴 호출
+        document.body.appendChild(iframe);
+        document.body.removeChild(iframe); // back 호출시 캐싱될 수 있으므로 제거
+    };
+</script>
+
+</html>
