@@ -18,7 +18,7 @@
                 const url = new URL(window.location.href);
                 const params = url.searchParams;
                 const invitationCode = params.get('code');
-                const scheme = 'intent://invite?code=' + code + '#Intent;scheme=familymoments;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;package=io.familymoments.app;end;'; // 스킴 호출
+                const scheme = 'intent://invite?code=' + invitationCode + '#Intent;scheme=familymoments;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;package=io.familymoments.app;end;'; // 스킴 호출
                 location.href = scheme;
             }, 1000);
     };
